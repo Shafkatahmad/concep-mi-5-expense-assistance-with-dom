@@ -11,9 +11,124 @@
       <div class="bg-white container max-w-md rounded-xl p-6 shadow-lg">
         <!-- title -->
         <div
-          class="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"
+          class="text-center text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6"
         >
           💻 Programmer Expenses Assistant
+        </div>
+
+        <!-- tabs for assistant and history -->
+        <div class="flex justify-between mb-6">
+          <button
+            id="assistant-tab"
+            class="w-1/2 py-2 rounded-l-md text-white font-semibold focus:outline-none transition-colors duration-200 bg-gradient-to-r from-blue-500 to-purple-600"
+          >
+            Assistant
+          </button>
+          <button
+            id="history-tab"
+            class="w-1/2 py-2 rounded-r-md text-gray-600 font-semibold focus:outline-none transition-colors duration-200"
+          >
+            History
+          </button>
+        </div>
+
+        <!-- Expense Form -->
+        <div id="expense-form" class="grid grid-cols-2 gap-4">
+          <!-- Income -->
+          <div class="col-span-2">
+            <label class="block text-gray-700 font-semibold mb-2" for=""
+              >Income 💰</label
+            >
+            <input
+              id="income"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              type="number"
+              placeholder="Enter income"
+            />
+            <p id="income-error" class="hidden text-red-500 text-xs mt-1">
+              ⚠️ Invalid income!
+            </p>
+          </div>
+
+          <!-- Software Subscription -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2"
+              >Software 💻</label
+            >
+            <input
+              id="software"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              type="number"
+              placeholder="Software cost"
+            />
+            <p id="software-error" class="hidden text-red-500 text-xs mt-1">
+              ⚠️ Invalid amount!
+            </p>
+          </div>
+
+          <!-- Courses/ Book -->
+          <div>
+            <label class="block mb-2 text-gray-700 font-semibold"
+              >Courses 📚</label
+            >
+            <input
+              id="courses"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              type="number"
+              placeholder="Course cost"
+            />
+            <p id="courses-error" class="hidden text-red-500 text-xs mt-1">
+              ⚠️ Invalid amount!
+            </p>
+          </div>
+
+          <!-- Internet -->
+          <div>
+            <label class="block text-gray-700 font-semibold mb-2"
+              >Internet 🌐</label
+            >
+            <input
+              id="internet"
+              class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              type="number"
+              placeholder="Internet cost"
+            />
+            <p id="internet-error" class="text-red-500 text-xs mt-1 hidden">
+              ⚠️ Invalid amount!
+            </p>
+          </div>
+
+          <!-- Calculate Button -->
+          <button
+            id="calculate"
+            class="col-span-2 text-white text-sm font-semibold px-4 py-2 rounded-md transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 focus:ring-blue-500"
+          >
+            Calculate
+          </button>
+
+          <!-- Savings -->
+          <div class="relative col-span-2">
+            <label class="block font-semibold mb-2 text-gray-700"
+              >Savings (%) 💸</label
+            >
+            <input
+              type="number"
+              id="savings"
+              class="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+              placeholder="Savings %"
+            />
+            <p id="savings-error" class="text-red-500 text-xs mt-1 hidden">
+              ⚠️ Invalid percentage!
+            </p>
+          </div>
+
+          <!-- Calculate Savings Button -->
+          <button
+            id="calculate-savings"
+            class="col-span-2 text-white px-4 py-2 rounded-md font-semibold text-sm transition-all duration-200 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 focus:ring-green-500"
+          >
+            Calculate Savings
+          </button>
         </div>
       </div>
     </main>
