@@ -1,13 +1,22 @@
 // getting all the values
 
+function getInputValueById(id) {
+  return parseFloat(document.getElementById(id).value);
+}
 
 // calculate button
 document.getElementById('calculate').addEventListener('click', function(event) {
   event.preventDefault();
-  const income = parseFloat(document.getElementById('income').value);
-  const software = parseFloat(document.getElementById('software').value);
-  const courses = parseFloat(document.getElementById('courses').value);
-  const internet = parseFloat(document.getElementById('internet').value);
+  // const income = parseFloat(document.getElementById('income').value);
+  // const software = parseFloat(document.getElementById('software').value);
+  // const courses = parseFloat(document.getElementById('courses').value);
+  // const internet = parseFloat(document.getElementById('internet').value);
+
+  // get input value from function
+  const income = getInputValueById('income');
+  const software = getInputValueById('software');
+  const courses = getInputValueById('courses');
+  const internet = getInputValueById('internet');
 
   if(income <= 0 || isNaN(income)) {
     document.getElementById('income-error').classList.remove('hidden');
@@ -109,4 +118,11 @@ document.getElementById('assistant-tab').addEventListener('click', function() {
   document.getElementById('expense-form').classList.remove('hidden');
 
   document.getElementById('history-section').classList.add('hidden');
+})
+
+// live validation
+document.getElementById('income').addEventListener('input', function(){
+  if(parseFloat(document.getElementById('income')) || isNaN(parseFloat(document.getElementById('income')))) {
+    document.getElementById('income-error').classList.remove('hidden');
+  }
 })
