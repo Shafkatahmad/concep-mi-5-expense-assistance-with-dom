@@ -9,8 +9,29 @@ document.getElementById('calculate').addEventListener('click', function(event) {
   const courses = parseFloat(document.getElementById('courses').value);
   const internet = parseFloat(document.getElementById('internet').value);
 
+  if(income <= 0 || isNaN(income)) {
+    document.getElementById('income-error').classList.remove('hidden');
+    return;
+  }
+  if(software <= 0 || isNaN(software)) {
+    document.getElementById('software-error').classList.remove('hidden');
+    return;
+  }
+  if(courses <= 0 || isNaN(courses)) {
+    document.getElementById('courses-error').classList.remove('hidden');
+    return;
+  }
+  if(internet <= 0 || isNaN(internet)) {
+    document.getElementById('internet-error').classList.remove('hidden');
+    return;
+  }
+
   const totalExpenses = software + courses + internet;
   const balance = income - totalExpenses;
+  if(totalExpenses > balance) {
+    document.getElementById('logic-error').classList.remove('hidden');
+    return;
+  }
 
   const totalExpensesElement = document.getElementById('total-expenses');
   totalExpensesElement.innerText = totalExpenses.toFixed(2);
@@ -32,7 +53,7 @@ document.getElementById('calculate').addEventListener('click', function(event) {
   `
 
   const historyContainer = document.getElementById('history-list');
-  historyContainer.insertBefore(historyItem, historyContainer.firstChild)
+  historyContainer.insertBefore(historyItem, historyContainer.firstChild);
 
   // console.log(totalExpenses, balance);
 })
@@ -40,6 +61,9 @@ document.getElementById('calculate').addEventListener('click', function(event) {
 // Saving button
 document.getElementById('calculate-savings').addEventListener('click', function() {
   const savingPercentace = parseFloat(document.getElementById('savings').value);
+  if(savingPercentace <0 || isNaN(savingPercentace)) {
+    document.getElementById('savings-error').classList.remove('hidden');
+  }
 
   const income = parseFloat(document.getElementById('income').value);
   const software = parseFloat(document.getElementById('software').value);
@@ -72,4 +96,17 @@ document.getElementById('history-tab').addEventListener('click',function() {
   document.getElementById('expense-form').classList.add('hidden');
 
   document.getElementById('history-section').classList.remove('hidden');
+})
+
+// Assistant tab functionality
+document.getElementById('assistant-tab').addEventListener('click', function() {
+  document.getElementById('assistant-tab').classList.add('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
+  document.getElementById('assistant-tab').classList.remove('text-gray-600');
+
+  document.getElementById('history-tab').classList.remove('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
+  document.getElementById('history-tab').classList.add('text-gray-600');
+
+  document.getElementById('expense-form').classList.remove('hidden');
+
+  document.getElementById('history-section').classList.add('hidden');
 })
