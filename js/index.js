@@ -21,7 +21,18 @@ document.getElementById('calculate').addEventListener('click', function(event) {
   document.getElementById('results').classList.remove('hidden');
 
 
-  
+  // History
+  const historyItem = document.createElement("div");
+  historyItem.className = "bg-white p-3 rounded-md border-l-2 border-indigo-500";
+  historyItem.innerHTML = `
+    <p class="text-xs text-gray-500">${new Date().toLocaleString()}</p>
+    <p class="text-xs text-gray-500">Income: $${income.toFixed(2)}</p>
+    <p class="text-xs text-gray-500">Expenses: $${totalExpenses.toFixed(2)}</p>
+    <p class="text-xs text-gray-500">Balance: $${balance.toFixed(2)}</p>
+  `
+
+  const historyContainer = document.getElementById('history-list');
+  historyContainer.insertBefore(historyItem, historyContainer.firstChild)
 
   // console.log(totalExpenses, balance);
 })
@@ -59,4 +70,6 @@ document.getElementById('history-tab').addEventListener('click',function() {
   document.getElementById('assistant-tab').classList.add('text-gray-600');
 
   document.getElementById('expense-form').classList.add('hidden');
+
+  document.getElementById('history-section').classList.remove('hidden');
 })
