@@ -20,6 +20,9 @@ document.getElementById('calculate').addEventListener('click', function(event) {
 
   document.getElementById('results').classList.remove('hidden');
 
+
+  
+
   // console.log(totalExpenses, balance);
 })
 
@@ -44,4 +47,16 @@ document.getElementById('calculate-savings').addEventListener('click', function(
   const remainingBalance = balance - savingAmount;
   const remainingElement = document.getElementById('remaining-balance');
   remainingElement.innerText = remainingBalance.toFixed(2);
+})
+
+// History tab functionality
+document.getElementById('history-tab').addEventListener('click',function() {
+
+  document.getElementById('history-tab').classList.add('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
+  document.getElementById('history-tab').classList.remove('text-gray-600');
+
+  document.getElementById('assistant-tab').classList.remove('text-white', 'bg-gradient-to-r', 'from-blue-500', 'to-purple-600');
+  document.getElementById('assistant-tab').classList.add('text-gray-600');
+
+  document.getElementById('expense-form').classList.add('hidden');
 })
